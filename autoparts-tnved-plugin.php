@@ -182,6 +182,11 @@ class AutoParts_TN_VED {
             return new WP_Error('product_creation_error', $e->getMessage(), array('status' => 500));
         }
     }
+# 1. Добавляем удалённый репозиторий
+git remote add origin git@github.com:vipbroadmin/autodily.git
+
+# 2. Посмотрим, как называется текущая ветка
+git branch
     
     /**
      * Загружает и устанавливает изображение товара
