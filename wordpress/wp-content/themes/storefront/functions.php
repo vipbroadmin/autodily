@@ -187,6 +187,9 @@ function remove_reviews_tab( $tabs ) {
     return $tabs;
 }
 
+// Убираем заголовок "Shop"
+remove_all_actions( 'woocommerce_shop_loop_header' );
+remove_action( 'woocommerce_shop_loop_header', 'woocommerce_product_taxonomy_archive_header', 10 );
 /**
  * NUX
  * Only load if wp version is 4.7.3 or above because of this issue;
