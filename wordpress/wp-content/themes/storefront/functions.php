@@ -181,6 +181,12 @@ if ( is_admin() ) {
 	require 'inc/admin/class-storefront-plugin-install.php';
 }
 
+add_filter( 'woocommerce_product_tabs', 'remove_reviews_tab', 98 );
+function remove_reviews_tab( $tabs ) {
+    unset( $tabs['reviews'] );
+    return $tabs;
+}
+
 /**
  * NUX
  * Only load if wp version is 4.7.3 or above because of this issue;
