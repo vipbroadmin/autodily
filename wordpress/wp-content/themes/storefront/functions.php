@@ -181,15 +181,6 @@ if ( is_admin() ) {
 	require 'inc/admin/class-storefront-plugin-install.php';
 }
 
-add_filter( 'woocommerce_product_tabs', 'remove_reviews_tab', 98 );
-function remove_reviews_tab( $tabs ) {
-    unset( $tabs['reviews'] );
-    return $tabs;
-}
-
-// Убираем заголовок "Shop"
-remove_all_actions( 'woocommerce_shop_loop_header' );
-remove_action( 'woocommerce_shop_loop_header', 'woocommerce_product_taxonomy_archive_header', 10 );
 /**
  * NUX
  * Only load if wp version is 4.7.3 or above because of this issue;
@@ -205,3 +196,17 @@ if ( version_compare( get_bloginfo( 'version' ), '4.7.3', '>=' ) && ( is_admin()
  * Note: Do not add any custom code here. Please use a custom plugin so that your customizations aren't lost during updates.
  * https://github.com/woocommerce/theme-customisations
  */
+
+add_filter( 'woocommerce_product_tabs', 'remove_reviews_tab', 98 );
+function remove_reviews_tab( $tabs ) {
+    unset( $tabs['reviews'] );
+    return $tabs;
+}
+// Убираем заголовок "Shop"
+remove_all_actions( 'woocommerce_shop_loop_header' );
+remove_action( 'woocommerce_shop_loop_header', 'woocommerce_product_taxonomy_archive_header', 10 );
+
+// Убрать верхнее меню
+remove_action( 'storefront_header', 'storefront_primary_navigation_wrapper', 42 );
+remove_action( 'storefront_header', 'storefront_primary_navigation', 50 );
+remove_action( 'storefront_header', 'storefront_primary_navigation_wrapper_close', 68 );
