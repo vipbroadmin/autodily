@@ -207,6 +207,6 @@ remove_all_actions( 'woocommerce_shop_loop_header' );
 remove_action( 'woocommerce_shop_loop_header', 'woocommerce_product_taxonomy_archive_header', 10 );
 
 // Убрать верхнее меню
-remove_action( 'storefront_header', 'storefront_primary_navigation_wrapper', 42 );
-remove_action( 'storefront_header', 'storefront_primary_navigation', 50 );
-remove_action( 'storefront_header', 'storefront_primary_navigation_wrapper_close', 68 );
+//remove_action( 'storefront_header', 'storefront_primary_navigation_wrapper', 42 );
+//remove_action( 'storefront_header', 'storefront_primary_navigation', 50 );
+//remove_action( 'storefront_header', 'storefront_primary_navigation_wrapper_close', 68 );
